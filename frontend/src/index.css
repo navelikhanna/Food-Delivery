@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Stardos+Stencil:wght@400;700&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: outfit;
+  scroll-behavior: smooth;
+}
+body{
+  min-height: 100vh;
+}
+a{
+ text-decoration: none;
+ color: inherit;
+}
+.app{
+  width: 80%;
+  margin: auto;
+}
+@keyframes fadeIn {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+:root{
+  --bg-color: #ffffff;
+  --text-color: #111111;
+  --muted-color: #666666;
+  --accent-color: #ff6b00;
+}
+
+.dark {
+  --bg-color: #0f1115;
+  --text-color: #e6e6e6;
+  --muted-color: #b3b3b3;
+  --accent-color: #ff9a4d;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}

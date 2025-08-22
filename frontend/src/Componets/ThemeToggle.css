@@ -1,0 +1,178 @@
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+  transition: all 0.3s ease;
+}
+
+/* Light mode button (orange glow) */
+.light .theme-toggle-btn {
+  background: #ffffff; 
+  color: #000000; 
+  animation: pulseOrange 2s infinite ease-in-out;
+}
+
+/* Dark mode button (blue glow) */
+.dark .theme-toggle-btn {
+  background: #1e1e1e;
+  color: #facc15;
+  animation: pulseBlue 2s infinite ease-in-out;
+}
+
+/* Hover scale */
+.theme-toggle-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Pulsing animations */
+@keyframes pulseOrange {
+  0% {
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(255, 165, 0, 1);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.7);
+  }
+}
+
+@keyframes pulseBlue {
+  0% {
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(0, 191, 255, 1);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.7);
+  }
+}
+/* Responsive adjustments */
+
+.dark .navbar-menu a,
+.dark .navbar-menu p,
+.dark .navbar-menu span {
+  color: #ffffff !important ;
+}
+
+.dark .cart-wrapper .cart-text {
+  color: #ffffff!important ;
+}
+
+.dark .navbar-right button {
+  color: #ffffff !important;
+ 
+}
+
+.dark .food-display h2 {
+  color: #ffffff !important;
+}
+
+.dark .explore-menu h1,
+.dark .explore-menu p {
+  color: #ffffff !important;
+}
+
+.dark .testimonial-section h2 {
+  color: #000000 !important;
+}
+
+.dark .food-item-name-rating p {
+  color:black !important; 
+}
+/* heading */
+.dark .testimonial-section h2 {
+  color: white !important;       
+}
+
+.dark .testimonial-card p {
+  color: black !important;
+}
+
+.dark .testimonial-card h3 {
+  color: black !important;
+}
+
+.dark .testimonial-card .role {
+  color: black !important;
+}
+
+.dark .testimonial-card .stars span {
+  color: #ffd700 !important; 
+}
+
+.dark .quote-icon {
+  color: #4da3ff !important; 
+}
+
+.dark .testimonial-section {
+  background-color: #111111 !important;
+}
+
+.theme-toggle-btn svg {
+  color: white;
+  font-size: 1.4rem; 
+}
+
+
+.light .theme-toggle-btn svg {
+  color: #000000 !important;
+}
+
+
+.dark .theme-toggle-btn svg {
+  color: #facc15 !important;
+}
+
+
+
+
+
+/* ===============================
+    FoodDisplay Container - Dark Mode
+=============================== */
+.dark .food-display {
+    background-color: #1a1a1a; /* dark background */
+    color: #f0f0f0;            /* light text */
+    margin-top: 40px;
+    padding: 30px 20px;
+    border-radius: 20px;
+}
+
+/* Heading */
+.dark .food-display h2 {
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+/* ===============================
+    Sort Container - Dark Mode
+=============================== */
+.dark .food-display .sort-container label {
+    color: #cccccc;
+}
+
+.dark .food-display .sort-container select {
+    background-color: #333333;
+    color: #f0f0f0;
+    border: 1px solid #555555;
+    transition: all 0.3s ease;
+}
+
+.dark .food-display .sort-container select:hover {
+    border-color: #1e90ff; /* subtle hover highlight */
+}
+
+.dark .food-display .sort-container select:focus {
+    outline: none;
+    border-color: #1e90ff;
+    box-shadow: 0 0 5px #1e90ff;
+}
+

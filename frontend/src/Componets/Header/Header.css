@@ -1,0 +1,241 @@
+/* Header Container */
+.header {
+    height: 34vw;
+    margin: 30px auto; 
+    background: url('/header_img.png') no-repeat center center;
+    background-size: cover; /* changed from contain for full coverage */
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.6s cubic-bezier(0.23,1,0.32,1), box-shadow 0.6s ease, filter 0.6s ease;
+    border-radius: 20px;
+    transform-style: preserve-3d;
+    padding-top: 80px;
+}
+
+/* Hover Tilt + Glow */
+.header:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(-2deg) scale(1.05);
+    filter: contrast(1.1) saturate(1.2);
+    box-shadow: 
+        0 25px 50px rgba(0,0,0,0.3),
+        0 0 0 1px rgba(255,255,255,0.1),
+        inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+/* Animated Conic Gradient Overlay */
+.header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        from 0deg,
+        transparent,
+        rgba(255,255,255,0.08),
+        transparent,
+        rgba(0,255,255,0.08),
+        transparent,
+        rgba(255,0,255,0.08),
+        transparent
+    );
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    animation: rotate 8s linear infinite;
+    pointer-events: none;
+}
+
+.header:hover::before {
+    opacity: 1;
+}
+
+/* Floating Particles */
+.header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.3) 1px, transparent 1px),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.2) 1px, transparent 1px),
+        radial-gradient(circle at 60% 20%, rgba(255,255,255,0.4) 1px, transparent 1px),
+        radial-gradient(circle at 30% 80%, rgba(255,255,255,0.25) 1px, transparent 1px);
+    background-size: 100px 100px, 150px 150px, 80px 80px, 120px 120px;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    animation: float 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.header:hover::after {
+    opacity: 1;
+}
+
+/* Header Contents */
+.header-contents {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5vw;
+    max-width: 50%;
+    bottom: 10%;
+    left: 6vw;
+    animation: slideInUp 1.2s cubic-bezier(0.23,1,0.32,1);
+    transition: transform 0.6s cubic-bezier(0.23,1,0.32,1);
+    transform-style: preserve-3d;
+}
+
+.header:hover .header-contents {
+    transform: translateZ(50px) translateY(-10px);
+}
+
+/* Heading */
+.header-contents h2 {
+    font-weight: 600;
+    color: white;
+    font-size: max(4.5vw, 24px);
+    line-height: 1.2;
+    cursor: default;
+    position: relative;
+}
+
+/* Paragraph */
+.header-contents p {
+    color: white;
+    font-size: 1vw;
+    max-width: 90%;
+    cursor: default;
+    position: relative;
+    transition: transform 0.6s ease, color 0.6s ease;
+}
+
+.header-contents p:hover {
+    transform: translateX(5px) translateZ(10px);
+    color: #f0f0f0;
+}
+
+/* CTA Button */
+.header-contents button {
+    border: none;
+    color: #333;
+    font-weight: 600;
+    padding: 1vw 2.3vw;
+    background: linear-gradient(45deg, #ffffff, #f8f9fa);
+    font-size: max(1vw,14px);
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+    transform-style: preserve-3d;
+}
+
+.header-contents button:hover {
+    transform: translateY(-6px) translateZ(20px) rotateX(-5deg) scale(1.08);
+    box-shadow: 
+        0 10px 25px rgba(0,0,0,0.25),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+.header-contents button:active {
+    transform: translateY(-2px) translateZ(10px) rotateX(-3deg) scale(1.05);
+}
+
+/* Keyframes */
+@keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0deg); } 33% { transform: translateY(-8px) rotate(1deg); } 66% { transform: translateY(-4px) rotate(-1deg); } }
+@keyframes slideInUp { from { opacity:0; transform: translateY(50px) translateZ(-100px) rotateX(20deg); } to { opacity:1; transform: translateY(0) translateZ(0) rotateX(0deg); } }
+
+/* Tablet View */
+@media (max-width: 1050px) {
+    .header-contents {
+        max-width: 45%;
+    }
+    
+    .header:hover {
+        transform: perspective(800px) rotateX(3deg) rotateY(-1deg) scale(1.03);
+    }
+    
+    .header:hover .header-contents {
+        transform: translateZ(30px) translateY(-5px);
+    }
+}
+
+/* Mobile View */
+@media (max-width: 750px) {
+    .header {
+        height: 55vw;
+        background-size: cover;
+        margin: 20px auto;
+        border-radius: 15px;
+    }
+
+    .header-contents {
+        max-width: 70%;
+        left: 5vw;
+        gap: 12px;
+    }
+
+    .header-contents h2 {
+        font-size: 6vw;
+    }
+
+    .header-contents p {
+        display: none;
+    }
+
+    .header-contents button {
+        padding: 2vw 5vw;
+        font-size: 3.5vw;
+    }
+    
+    /* Simplified but still awesome mobile effects */
+    .header:hover {
+        transform: scale(1.02);
+        filter: brightness(1.1);
+    }
+    
+    .header-contents h2:hover {
+        transform: translateX(8px) scale(1.02);
+    }
+    
+    .header-contents button:hover {
+        transform: translateY(-4px) scale(1.05);
+        animation: magnetic 2s ease-in-out infinite;
+    }
+}
+
+/* Small Mobile View */
+@media (max-width: 480px) {
+    .header {
+        height: 65vw;
+        border-radius: 10px;
+    }
+
+    .header-contents {
+        max-width: 90%;
+        left: 5vw;
+    }
+
+    .header-contents h2 {
+        font-size: 7vw;
+    }
+
+    .header-contents button {
+        padding: 3vw 6vw;
+        font-size: 4vw;
+    }
+    
+    .header:hover {
+        transform: scale(1.01);
+    }
+    
+    .header-contents button:hover {
+        transform: translateY(-2px) scale(1.03);
+    }
+}
